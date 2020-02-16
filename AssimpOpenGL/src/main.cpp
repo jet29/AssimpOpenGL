@@ -8,12 +8,16 @@
 #include <glm/glm.hpp>
 
 #include "Shader.h"
+#include "mesh/mesh.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 
 using namespace std;
+
+// Assimp render model
+Mesh* mesh;
 
 
 // Window dimensions
@@ -192,6 +196,9 @@ bool init() {
 	cout << "texture size" << endl;
 	cout << textureWidth << ", " << textureHeight << endl;
 
+	//testing models wtf!
+	mesh = new Mesh("assets/models/Knight.obj");
+
 	return true;
 }
 
@@ -244,6 +251,8 @@ int main()
 	init();
 
 	Shader* shader = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader* shaderModel = new Shader("src/shaders/model.vert", "src/shaders/model.frag");
+
 
 	// Game loop
 	while (!glfwWindowShouldClose(window))
@@ -282,15 +291,24 @@ int main()
 		glBindTexture(GL_TEXTURE_2D, texture);
 		shader->setInt("image", 0);
 
+		model = glm::mat4(1.0f);
 		shader->setMat4("model", model);
 		shader->setMat4("view", view);
 		shader->setMat4("projection", projection);
 
-		// Binds the vertex array to be drawn
-		glBindVertexArray(VAO);
-		// Render triangle's geometry
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-		glBindVertexArray(0);
+
+		//// Binds the vertex array to be drawn
+		//glBindVertexArray(VAO);
+		//// Render triangle's geometry
+		//glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+		//glBindVertexArray(0);
+
+		shaderModel->use();
+		shaderModel->setMat4("model", model);
+		shaderModel->setMat4("view", view);
+		shaderModel->setMat4("projection", projection);
+
+		mesh->Draw();
 
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
