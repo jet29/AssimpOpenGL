@@ -1,0 +1,41 @@
+# Prerequisites
+/AssimpOpenGL/*.d
+
+# Compiled Object files
+/AssimpOpenGL/*.slo
+/AssimpOpenGL/*.lo
+/AssimpOpenGL/*.o
+/AssimpOpenGL/*.obj
+
+# Precompiled Headers
+/AssimpOpenGL/*.gch
+/AssimpOpenGL/*.pch
+
+# Compiled Dynamic libraries
+/AssimpOpenGL/*.so
+/AssimpOpenGL/*.dylib
+/AssimpOpenGL/*.dll
+
+# Fortran module files
+/AssimpOpenGL/*.mod
+/AssimpOpenGL/*.smod
+
+# Compiled Static libraries
+/AssimpOpenGL/*.lai
+/AssimpOpenGL/*.la
+/AssimpOpenGL/*.a
+/AssimpOpenGL/*.lib
+
+# Executables
+/AssimpOpenGL/*.exe
+/AssimpOpenGL/*.out
+/AssimpOpenGL/*.app
+
+# visual studio metafiles
+/AssimpOpenGL/.vs
+
+# x64 files
+/AssimpOpenGL/x64
+
+# OpenGL Resources
+/External_Resources
