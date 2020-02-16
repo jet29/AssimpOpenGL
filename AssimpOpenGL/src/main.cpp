@@ -197,7 +197,7 @@ bool init() {
 	cout << textureWidth << ", " << textureHeight << endl;
 
 	//testing models wtf!
-	mesh = new Mesh("assets/models/Knight.obj");
+	mesh = new Mesh("assets/models/crysis.fbx");
 
 	return true;
 }

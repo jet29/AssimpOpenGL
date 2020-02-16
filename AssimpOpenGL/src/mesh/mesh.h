@@ -6,6 +6,7 @@
 #include "vertex.h"
 #include "referenceCounter.h"
 #include <string>
+#include <vector>
 #include <map>
 
 class MeshData : public ReferenceCounter
@@ -43,10 +44,10 @@ private:
 	void operator=(Mesh& mesh) {}
 
 	void CalcNormals(Vertex* vertices, int vertSize, int* indices, int indexSize);
-	void InitMesh(Vertex* vertices, int vertSize, int* indices, int indexSize, bool calcNormals = true);
+	void InitMesh(Vertex* vertices, int vertSize, int* indices, int indexSize, int indexMesh, bool calcNormals = true);
 
 	std::string m_fileName;
-	MeshData* m_meshData;
+	std::vector<MeshData*> m_meshData;
 };
 
 #endif
